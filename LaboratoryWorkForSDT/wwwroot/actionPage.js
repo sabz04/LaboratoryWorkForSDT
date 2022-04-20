@@ -35,10 +35,10 @@ async function getSeedlingByID(id) {
 
         const form = document.forms["seedlingForm"];
         form.elements["id"].value = seedling.id;
-        form.elements["name"].value = seedling.name;
-        form.elements["type"].value = seedling.type;
-        form.elements["count"].value = seedling.count;
-        form.elements["price"].value = seedling.price;
+        form.elements["name"].value = seedling.nameSeedlings;
+        form.elements["type"].value = seedling.typeSeedlings;
+        form.elements["count"].value = seedling.countSeedlings;
+        form.elements["price"].value = seedling.priceSeedlings;
 
     }
 
@@ -51,10 +51,10 @@ async function createSeedling(name, type, count, price) {
         method: "POST",
         headers: { "Accept": "application/json", "Content-Type": "application/json" },
         body: JSON.stringify({
-            name: name,
-            type: type,
-            count: parseInt(count, 10),
-            price: parseInt(price, 10)
+            nameSeedlings: name,
+            typeSeedlings: type,
+            countSeedlings: parseInt(count, 10),
+            priceSeedlings: parseInt(price, 10)
         })
     });
 
@@ -129,19 +129,19 @@ function row(seedling) {
     tr.append(idTd);
 
     const nameTd = document.createElement("td");
-    nameTd.append(seedling.name);
+    nameTd.append(seedling.nameSeedlings);
     tr.append(nameTd);
 
     const typeTd = document.createElement("td");
-    nameTd.append(seedling.type);
+    typeTd.append(seedling.typeSeedlings);
     tr.append(typeTd);
 
     const countTd = document.createElement("td");
-    countTd.append(seedling.count);
+    countTd.append(seedling.countSeedlings);
     tr.append(countTd);
 
     const priceTd = document.createElement("td");
-    priceTd.append(seedling.price);
+    priceTd.append(seedling.priceSeedlings);
     tr.append(priceTd);
 
     const linksTd = document.createElement("td");

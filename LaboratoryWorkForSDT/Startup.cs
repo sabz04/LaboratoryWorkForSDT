@@ -9,7 +9,8 @@ namespace LaboratoryWorkForSDT
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<SeedlingsContext>(options => options.UseSqlServer(SqlConnectionIntegratedSecurity));
+            services.AddDbContext<SeedlingsContext>(
+                options => options.UseSqlServer(SqlConnectionIntegratedSecurity));
             services.AddControllers();
         }
 
@@ -17,21 +18,17 @@ namespace LaboratoryWorkForSDT
         {
             get
             {
-
                 var sb = new SqlConnectionStringBuilder
                 {
 
-                    DataSource = @"LAPTOP-92FKSE2H",
+                    DataSource = "SABIROV\\SQLEXPRESS",
                     InitialCatalog = "SoftwareDevelopmentsTools",
                     IntegratedSecurity = true
 
                 };
-
                 return sb.ConnectionString;
-
             }
         }
-
         public void Configure(IApplicationBuilder app)
         {
 
@@ -45,7 +42,5 @@ namespace LaboratoryWorkForSDT
             });
 
         }
-
-
     }
 }
